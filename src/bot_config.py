@@ -9,7 +9,7 @@ TEMPLATE_BOX = "assets/templates/box.png"
 TEMPLATE_OPEN = "assets/templates/open.png"
 TEMPLATE_SKIP_ALL = "assets/templates/skipall.png"
 TEMPLATE_COLLECT = "assets/templates/collect.png"
-DEFAULT_CONFIDENCE = 0.8
+DEFAULT_CONFIDENCE = 0.5
 CLICK_DELAY = 1
 IDLE_DELAY = 0.7 # seconds - how long to wait when idle
 
