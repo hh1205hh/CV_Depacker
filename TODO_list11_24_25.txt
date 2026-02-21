@@ -1,0 +1,14 @@
+TODO List:
+1 - Import the TW_MMORPG files into a new Venv (TW_env) workspace - VVV
+
+1.1 - create a requirments.txt file; check the latest versions of each Py Lib: 
+cv2, pyautogui, numpy.
+(treading, enum, ctypes, tkinter) = Built-in Py Libs' Select the Virtual Env Interepter - VVV
+
+2 - Organize and refine imports - VVV
+ 
+3 - There is a bug, cv cannot detect the boxes: reduce the CONFIDENCE_DEFAULT constant 
+4 - M0dify the states t0 m0re appr0priate and n0n-redundant 
+
+2 - If working, delete the BSCopy directory and all attached TW programes
+3 - 

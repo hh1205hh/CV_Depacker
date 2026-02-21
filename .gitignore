@@ -1,0 +1,11 @@
+TW_env/
+
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+assets.zip
+*.zip
+
+.vscode/
