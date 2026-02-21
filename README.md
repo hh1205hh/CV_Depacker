@@ -4,9 +4,7 @@ This project is an automated, computer-vision-driven bot designed to interact wi
 
 ## Demo Video 
 
-<video width="100%" controls>
-  <source src="https://github.com/hh1205hh/TW_MMORPG" type="video/mp4">
-</video>
+![TW_MMORPG Bot Demo](demo.gif)
 
 ## Requirements
 
