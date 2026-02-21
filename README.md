@@ -2,11 +2,9 @@
 
 This project is an automated, computer-vision-driven bot designed to interact with "The Wolf MMORPG" running inside the BlueStacks 5 Android emulator on Windows. Specifically, it automates the tedious process of opening loot boxes and collecting rewards.
 
-## Demo Video 
+## Demo 
 
-<video width="100%" controls>
-  <source src="https://github.com/hh1205hh/TW_MMORPG" type="video/mp4">
-</video>
+![TW_MMORPG Bot Demo](demo.gif)
 
 ## Requirements
 
