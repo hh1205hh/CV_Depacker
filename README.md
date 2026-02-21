@@ -5,7 +5,7 @@ This project is an automated, computer-vision-driven bot designed to interact wi
 ## Demo Video
 
 <video width="100%" controls>
-  <source src="https://github.com/hh1205hh/TW_MMORPG" type="video/mp4">
+  <source src="https://github.com/hh1205hh/TW_MMORPG/raw/main/Demo.mp4" type="video/mp4">
 </video>
 
 ## Requirements
@@ -23,7 +23,7 @@ pip install -r requirements.txt
 ```
 
 * Create a new BlueStacks 5 instance.
-* ⚠️ **Crucial:** The window title must be exactly `"Bluestacks App Player"`. The `WindowCapture` module uses this strict string to hook the window handle (`hwnd`) and calculate DPI-aware crop offsets.
+* **Crucial:** The window title must be exactly `"Bluestacks App Player"`. The `WindowCapture` module uses this strict string to hook the window handle (`hwnd`) and calculate DPI-aware crop offsets.
 
 
 * Sideload **"The Wolf MMORPG Modded APK (Free shopping)"** into the configured BlueStacks instance.
@@ -43,6 +43,6 @@ python src/main.py
 ---
 
 
-* ⚠️ **Safe Exit:** Do not forcefully close the emulator or terminal.
+ **Safe Exit:** Do not forcefully close the emulator or terminal.
 * Bring the OpenCV simulation window (`"TheWolfBoxOpener - Debug"`) into focus and press **`q`**.
 * This sends the interrupt signal to gracefully terminate the capture and bot threads (`wincap.stop()`, `bot.stop()`) and safely release memory/window handles.
