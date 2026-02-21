@@ -11,7 +11,7 @@ TEMPLATE_SKIP_ALL = "assets/templates/skipall.png"
 TEMPLATE_COLLECT = "assets/templates/collect.png"
 DEFAULT_CONFIDENCE = 0.8
 CLICK_DELAY = 1
-IDLE_DELAY = 0.5 # seconds - how long to wait when idle
+IDLE_DELAY = 0.7 # seconds - how long to wait when idle
 
 
 class BotState(Enum):
@@ -165,56 +165,3 @@ class Bot:
                             # After an aggressive click, wait a short time for UI to update
                             self.set_state(BotState.IDLE, CLICK_DELAY)
                             break
-
-            
-
-            """
-            # State 1: Look for a new box
-            if self.state == BotState.SEARCHING_FOR_BOX:
-                box_pos = self.uifinder.find_template(TEMPLATE_BOX, self.screenshot, DEFAULT_CONFIDENCE)
-                if box_pos:
-                    print("Found a box. Clicking it.")
-                    self.click_location(box_pos)
-                    self.set_state(BotState.OPENING_BOX, CLICK_DELAY)
-                else:
-                    print("No boxes found. Going idle.")
-                    self.set_state(BotState.IDLE, IDLE_DELAY)
-            
-            # State 2: Look for the "Open" button (after clicking a box)
-            elif self.state == BotState.OPENING_BOX:
-                if self.is_delay_over():
-                    open_pos = self.uifinder.find_template(TEMPLATE_OPEN, self.screenshot, DEFAULT_CONFIDENCE)
-                    if open_pos:
-                        print("Found 'Open' button. Clicking it.")
-                        self.click_location(open_pos)
-                        self.set_state(BotState.SKIP_ALL, CLICK_DELAY)
-                    else:
-                        print("No boxes found. Going idle.")
-                        self.set_state(BotState.IDLE, IDLE_DELAY)
-
-            # State 3: Look for "Skip All" button to skip animations
-            elif self.state == BotState.SKIP_ALL:
-                if self.is_delay_over():
-                    skip_pos = self.uifinder.find_template(TEMPLATE_SKIP_ALL, self.screenshot, DEFAULT_CONFIDENCE)
-                    if skip_pos:
-                        print("Found 'Skip All'. Clicking it.")
-                        self.click_location(skip_pos)
-                        self.set_state(BotState.COLLECT, CLICK_DELAY)
-                    else:
-                        print("No boxes found. Going idle.")
-                        self.set_state(BotState.IDLE, IDLE_DELAY)
-
-            # State 4: Look for "Collect" button to collect rewards
-            elif self.state == BotState.COLLECT:
-                if self.is_delay_over():
-                    collect_pos = self.uifinder.find_template(TEMPLATE_COLLECT, self.screenshot, DEFAULT_CONFIDENCE)
-                    if collect_pos:
-                        print("Found 'Collect'. Clicking it.")
-                        self.click_location(collect_pos)
-                        self.set_state(BotState.SEARCHING_FOR_BOX, CLICK_DELAY)
-                    else:
-                        print("No boxes found. Going idle.")
-                        self.set_state(BotState.IDLE, IDLE_DELAY)
-
-"""
-

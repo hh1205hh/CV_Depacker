@@ -5,9 +5,6 @@ import win32gui, win32ui, win32con, win32com.client
 from threading import Thread, Lock
 from ctypes import windll
 
-# This file is copied directly from the BrawlStarsBot repository.
-# It is a robust way to capture a specific emulator window.
-
 class WindowCapture:
 
     # threading properties
@@ -15,7 +12,6 @@ class WindowCapture:
     lock = None
     screenshot = None
      
-    # properties 
     w = 0
     h = 0
     hwnd = None
@@ -24,7 +20,6 @@ class WindowCapture:
     offset_x = 0
     offset_y = 0
 
-    # constructor
     def __init__(self, window_name=None):
         # Make program aware of DPI scaling
         user32 = windll.user32

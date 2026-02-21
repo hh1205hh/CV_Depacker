@@ -63,6 +63,8 @@ class UIFinder:
 
         # Find the location of the best match
         min_val, max_val, min_loc, max_loc = cv.minMaxLoc(result)
+
+        print(f"Highest match confidence found: {max_val}")
         
         if max_val >= confidence:
             # max_loc is the top-left corner of the match
