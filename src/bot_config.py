@@ -157,6 +157,8 @@ class Bot:
             # This makes the bot respond to any opening/collect UI anywhere on screen.
             if self.is_delay_over():
                 for tpl_name, tpl_path in [("TEMPLATE_BOX", TEMPLATE_BOX), ("TEMPLATE_OPEN", TEMPLATE_OPEN), ("TEMPLATE_SKIP_ALL", TEMPLATE_SKIP_ALL), ("TEMPLATE_COLLECT", TEMPLATE_COLLECT)]:
+                    if self.stopped:
+                        break
                     if tpl_path:
                         tpl_pos = self.uifinder.find_template(tpl_path, self.screenshot, DEFAULT_CONFIDENCE)
                         if tpl_pos:

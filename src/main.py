@@ -1,16 +1,15 @@
 import cv2 as cv
 import pyautogui as py
+import win32api
 from time import time
 from win_cap_module import WindowCapture
 from bot_config import Bot, BotState
 from template_matching import UIFinder
 
-# Set this to True to see a debug window
 DEBUG = True
 window_name = "Bluestacks App Player"
-print("Bot starting... Press 'q' in the debug window to quit.")
+print("Bot starting... Press 'q' anywhere to quit.")
 
-# Initialize all our modules
 try: 
     wincap = WindowCapture(window_name)
 except Exception as e:
@@ -21,37 +20,39 @@ except Exception as e:
 uifinder = UIFinder(wincap)
 bot = Bot(wincap, uifinder)
 
-# Start the bot's logic thread
 wincap.start()
 bot.start()
 
 loop_time = time()
+# Clear any prior key state for 'Q' before entering the loop
+win32api.GetAsyncKeyState(ord('Q'))
 
 try:
     while(True):
-        # Get the latest screenshot
         screenshot = wincap.screenshot
         if screenshot is None:
+            if win32api.GetAsyncKeyState(ord('Q')) != 0:
+                wincap.stop()
+                bot.stop()
+                cv.destroyAllWindows()
+                print("\nBot stopped.")
+                break
             continue  
 
-        # Update the bot with the new screenshot
         bot.update_screenshot(screenshot)
 
         if DEBUG:
-            # Create a copy for drawing
             debug_image = bot.get_debug_image()
             
-            # Show the debug window
             cv.imshow("TheWolfBoxOpener - Debug", debug_image)
 
-        # Calculate and display FPS
         fps = 1 / (time() - loop_time)
         loop_time = time()
         # print(f"FPS {fps:.2f} - State: {bot.state.name}", end='\r')
 
-        # Press 'q' to exit the script
-        key = cv.waitKey(1)
-        if key == ord('q'):
+        # Press 'q' anywhere on the screen to exit the script
+        key = cv.waitKey(1) & 0xFF
+        if key in (ord('q'), ord('Q')) or win32api.GetAsyncKeyState(ord('Q')) != 0:
             wincap.stop()
             bot.stop()
             cv.destroyAllWindows()
