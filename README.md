@@ -1,4 +1,4 @@
-## ## Project classification: Practical ##
+## Project classification: Practical 
 
 
 # The Wolf MMORPG - Automated Loot Box Bot
